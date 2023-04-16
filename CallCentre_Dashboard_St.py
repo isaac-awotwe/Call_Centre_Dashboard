@@ -22,6 +22,13 @@ def float_to_int(x):
     x_int = x_rounded.astype("int")
     return x_int
 
+def style_high_values(v, props=''):
+    """Style positive values in dataframe"""
+    try: 
+        return props if v > 12000 else None
+    except:
+        pass 
+
 #Load Data
 df_calls = pd.read_excel("Call_Centre_Data.xlsx", sheet_name="Call Data", skiprows=2)
 
@@ -136,7 +143,8 @@ with big_col1:
     st.plotly_chart(fig)
     
     st.write("##### **Agent Call Times for December 2022**")
-    st.dataframe(agent_calls_dec, 600, 310)
+    st.dataframe(agent_calls_dec.style.hide().applymap(style_high_values, props = 'color:green;'), 600, 310)
+    #st.dataframe(agent_calls_dec, 600, 310)
 
 with big_col2:
     month_names = tuple(df_monthly_metrics['Month Name'])
