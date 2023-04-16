@@ -169,7 +169,7 @@ with big_col2:
         value = serv_level,
         domain = {'x': [0, 1], 'y': [0, 1]},
         title = {'text': "Service Level"}))
-    fig2.update_layout(width=400, height=400)
+    fig2.update_layout(width=300, height=300)
     st.plotly_chart(fig2)
     
     
