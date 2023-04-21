@@ -15,6 +15,7 @@ from datetime import datetime, date, time
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+st.set_page_config(layout="wide")
 
 #Define Functions
 def float_to_int(x):
