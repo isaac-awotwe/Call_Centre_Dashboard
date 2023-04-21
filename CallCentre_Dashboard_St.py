@@ -186,6 +186,6 @@ with big_col2:
     df_month_select_pivot = df_month_select.pivot_table(index = 'Agent Name', columns = 'Call Date', values = "Call ID", aggfunc = "count")
     df_month_select_pivot = df_month_select_pivot.fillna(0)
     fig3 = go.Figure(data=go.Heatmap(z = df_month_select_pivot.values, y = list(df_month_select_pivot.index), x = df_month_select_pivot.columns, colorscale='Viridis'))
-    fig3.update_layout({'title':{'text':'Daily Number of Calls per Agent'}}, width=400, height=400)
+    fig3.update_layout({'title':{'text':'Daily Number of Calls per Agent'}}, width=400, height=600)
     st.plotly_chart(fig3)
 
