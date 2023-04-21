@@ -140,7 +140,7 @@ big_col1, big_col2 = st.columns(2, gap = "large")
 with big_col1:
     fig = px.bar(data_frame = satisfaction_rates, x='Agent Name', y='Satisfaction')
     fig.add_hline(y=3.2, line_dash = "dash", line_color="orange")
-    fig.update_layout({'title':{'text':'Average Agent Satisfaction Rating'}}, width=300, height=300)
+    fig.update_layout({'title':{'text':'Average Agent Satisfaction Rating'}}, width=500, height=300)
     st.plotly_chart(fig)
     
     st.write("##### **Agent Call Times for December 2022**")
