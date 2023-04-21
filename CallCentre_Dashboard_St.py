@@ -144,7 +144,7 @@ with big_col1:
     st.plotly_chart(fig)
     
     st.write("##### **Agent Call Times for December 2022**")
-    st.dataframe(agent_calls_dec.style.hide().applymap(style_high_values, props = 'color:green;'), 600, 310)
+    st.dataframe(agent_calls_dec.style.hide().applymap(style_high_values, props = 'color:green;'), 600, 350)
     #st.dataframe(agent_calls_dec, 600, 310)
 
 with big_col2:
