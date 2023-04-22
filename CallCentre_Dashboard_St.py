@@ -173,7 +173,7 @@ with big_col2:
         metric_name = 'Service Level'
         value = df_monthly_metrics.loc[df_monthly_metrics["Month Name"]==month_select, metric_name].values[0]
         delta = (value-Service_Level)/Service_Level
-        st.metric(label = "Service Level", value = value, delta = "{:.0%}".format(delta))
+        st.metric(label = "Service Level", value = "{:.0%}".format(value), delta = "{:.0%}".format(delta))
     
     #serv_level = df_monthly_metrics.loc[df_monthly_metrics["Month Name"]==month_select, "Service Level"].values[0]
     #fig2 = go.Figure(go.Indicator(
