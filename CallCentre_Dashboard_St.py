@@ -150,7 +150,7 @@ with big_col1:
 with big_col2:
     month_names = tuple(df_monthly_metrics['Month Name'])
     month_select = st.selectbox("## **Select a month to see month-specific metrics**", month_names)
-    col6, col7, col8 = st.columns(3)
+    col6, col7, col8, col9 = st.columns(3)
     with col6:
         metric_name = 'Abandon Rate'
         value = df_monthly_metrics.loc[df_monthly_metrics["Month Name"]==month_select, metric_name].values[0]
@@ -164,22 +164,25 @@ with big_col2:
         st.metric(label = "Queue (sec)", value = value, delta = "{:.0%}".format(delta))
 
     with col8:
-        
         metric_name = 'Talk Time'
         value = df_monthly_metrics.loc[df_monthly_metrics["Month Name"]==month_select, metric_name].values[0]
         delta = (value-Talk_Time)/Talk_Time
         st.metric(label = "Talk Time (sec)", value = value, delta = "{:.0%}".format(delta))
     
+    with col9:
+        metric_name = 'Service Level'
+        value = df_monthly_metrics.loc[df_monthly_metrics["Month Name"]==month_select, metric_name].values[0]
+        delta = (value-Service_Level)/Service_Level
+        st.metric(label = "Service Level", value = value, delta = "{:.0%}".format(delta))
     
-    
-    serv_level = df_monthly_metrics.loc[df_monthly_metrics["Month Name"]==month_select, "Service Level"].values[0]
-    fig2 = go.Figure(go.Indicator(
-        mode = "gauge+number",
-        value = serv_level,
-        domain = {'x': [0, 1], 'y': [0, 1]},
-        title = {'text': "Service Level"}))
-    fig2.update_layout(width=250, height=250)
-    st.plotly_chart(fig2)
+    #serv_level = df_monthly_metrics.loc[df_monthly_metrics["Month Name"]==month_select, "Service Level"].values[0]
+    #fig2 = go.Figure(go.Indicator(
+        #mode = "gauge+number",
+        #value = serv_level,
+        #domain = {'x': [0, 1], 'y': [0, 1]},
+        #title = {'text': "Service Level"}))
+    #fig2.update_layout(width=250, height=250)
+    #st.plotly_chart(fig2)
     
     
     df_month_select = df_calls[df_calls['Month Name'] == month_select]
