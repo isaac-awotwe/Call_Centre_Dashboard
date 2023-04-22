@@ -150,7 +150,7 @@ with big_col1:
 with big_col2:
     month_names = tuple(df_monthly_metrics['Month Name'])
     month_select = st.selectbox("## **Select a month to see month-specific metrics**", month_names)
-    col6, col7, col8, col9 = st.columns(3)
+    col6, col7, col8, col9 = st.columns(4)
     with col6:
         metric_name = 'Abandon Rate'
         value = df_monthly_metrics.loc[df_monthly_metrics["Month Name"]==month_select, metric_name].values[0]
